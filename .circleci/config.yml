@@ -10,9 +10,11 @@ jobs:
       - checkout
       - node/install-packages
       - run:
-          command: |
-               - npm pack 
-               - npm start
+          name: pack
+          command: npm pack
+      - run:
+          name: start
+          command: npm start
 workflows:
   pack_my_app:
     jobs:
