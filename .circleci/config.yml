@@ -2,7 +2,7 @@ version: '2.1'
 orbs:
   node: circleci/node@4.7
 jobs:
-  pack:
+  pack-start:
     executor:
       name: node/default
       tag: '13.14'
@@ -10,8 +10,8 @@ jobs:
       - checkout
       - node/install-packages
       - run:
-          command: npm pack start
+          command: npm pack && npm start
 workflows:
   pack_my_app:
     jobs:
-      - pack
+      - pack-start
